@@ -1,0 +1,16 @@
+.logo img {
+    width: px; /* Largeur de l'image */
+    height: 100px; /* Hauteur de l'image */
+    border: 2px solid black; /* Bordure de 2 pixels de large, solide et noire */
+}
+/* Réduire la taille de l'input time */
+#heureFin {
+    width: 80px; /* Définir une largeur fixe */
+    max-width: 100px; /* Définir une largeur maximale */
+  }
+ 
+ 
+  
+  
+  
+  

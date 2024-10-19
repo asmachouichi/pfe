@@ -1,0 +1,33 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Cin</th>
+        <th scope="col">Date de naissance</th>
+        <th scope="col">classe</th>
+        <th scope="col">Groupe</th>
+        <th scope="col">Nationnalite</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let etudiant of etuList ">
+        <td>{{etudiant.id}}</td>
+        <td>{{etudiant.name}}</td>
+        <td>{{etudiant.prenom}}</td>
+        <td>{{etudiant.email}}</td>
+        <td>{{etudiant.cin}}</td>
+        <td>{{etudiant.date_naissance}}</td>
+        <td>{{etudiant.classe}}</td>
+        <td>{{etudiant.groupe}}</td>
+        <td>{{etudiant.nationnalite}}</td>
+       
+
+      </tr>
+      
+    </tbody>
+  </table>
+  <button (click)="admin()" class="btn btn-primary">Back to Dashbord</button><br>

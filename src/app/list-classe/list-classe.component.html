@@ -1,0 +1,24 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">name</th>
+        <th scope="col">specielite</th>
+        <th scope="col">niveau</th>
+        
+       
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let classe of claList">
+        <td>{{classe.id}}</td>
+        <td>{{classe.name}}</td>
+        <td>{{classe.specielite}}</td>
+        <td>{{classe.niveau}}</td>
+
+      </tr>
+      
+    </tbody>
+  </table>
+  <button (click)="admin()" class="btn btn-primary">Back to Dashbord</button><br>

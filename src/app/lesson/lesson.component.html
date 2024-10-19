@@ -1,0 +1,289 @@
+
+
+
+
+    <!-- Sidebar -->
+    
+  
+    <div class="wrapper">
+        <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+  
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="javascript:;" class="simple-text">
+                      Your Logo
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/admin']">
+                            <i class="nc-icon nc-icon nc-paper-2"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" [routerLink]="['/etudiant']">
+                          <i class="nc-icon nc-icon nc-paper-2"></i>
+                          <p>Gestion etudiant</p>
+                      </a>
+                  </li>
+                    <li>
+                        <a class="nav-link" [routerLink]="['/ensiegnant']">
+                            <i class="nc-icon nc-bell-55"></i>
+                            <p>Gestion ensiegnant</p>
+                        </a>
+                    </li>
+  
+                    <li class="nav-item active active-pro">
+                        <a class="nav-link active" href="javascript:;">
+                            <i class="nc-icon nc-alien-33"></i>
+                            <p>Upgrade plan</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+          <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="inscription">Inscription</a>
+                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="dropdown">
+                                <i class="nc-icon nc-palette"></i>
+                                <span class="d-lg-none">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <i class="nc-icon nc-planet"></i>
+                                <span class="notification">5</span>
+                                <span class="d-lg-none">Notification</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Notification 1</a>
+                                <a class="dropdown-item" href="#">Notification 2</a>
+                                <a class="dropdown-item" href="#">Notification 3</a>
+                                <a class="dropdown-item" href="#">Notification 4</a>
+                                <a class="dropdown-item" href="#">Another notification</a>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nc-icon nc-zoom-split"></i>
+                                <span class="d-lg-block">&nbsp;Search</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pablo">
+                                <span class="no-icon">Account</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="no-icon">Dropdown</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pablo">
+                                <span class="no-icon">Log out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+    <ul>
+    <div class="container-fluid" >
+    
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">lesson</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addLesson" type="submit">Add Lesson</button>
+          </div>
+        </div>
+    </nav>
+    
+    
+    
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"> ID</th>
+            <th scope="col">titre</th>
+            <th scope="col">descreption</th>
+            <th scope="col">matiere</th>
+            <th scope="col">duree</th>
+            <th scope="col">auteur</th>
+            <th scope="col">niveau</th>
+
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lesson of lesList">
+            <td>{{lesson.id}}</td>
+            <td>{{lesson.titre}}</td>
+            <td>{{lesson.matiere}}</td>
+            <td>{{lesson.descreption}}</td>
+            <td>{{lesson.niveau}}</td>
+            <td>{{lesson.duree}}</td>
+            <td>{{lesson.auteur}}</td>
+
+            
+            
+            <td>
+              <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editLesson" (click)="editLesson(lesson)">Edit</button>
+                <button type="button" class="btn btn-outline-danger" (click)="deleteLesson(lesson)">Delete</button>
+            </td>
+    
+          </tr>
+          
+        </tbody>
+      </table>
+    
+    
+      
+      <!-- Add employee modal -->
+      <div class="modal fade"  classe="text-center"id="addLesson" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">lesson</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+                <form [formGroup]="lesDetail">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">id </label>
+                        <input type="text" formControlName="id" class="form-control" id="id" >
+                      </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Titre </label>
+                        <input type="text" formControlName="titre" class="form-control" id="Titre" >
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Matiere </label>
+                        <input type="text" formControlName="matiere" class="form-control" id="Matiere" >
+                      </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Niveau </label>
+                      <input type="email" formControlName="niveau" class="form-control" id="Niveau"aria-describedby="emailHelp" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">duree</label>
+                        <input type="text" formControlName="duree" class="form-control" id="duree" >
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Auteur </label>
+                        <input type="text" formControlName="auteur" class="form-control" id="Auteur" >
+                      </div>
+                   
+                      <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Descreption</label>
+                          <input type="text" formControlName="descreption" class="form-control" id="descreption" >
+                        </div>
+                
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addLesson()">Add</button>
+                      </div>
+                  </form>
+    
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    
+     
+      <!-- Edit employee modal -->
+      <div class="modal fade" id="editLesson" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit </h5>
+              
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+                <form [formGroup]="lesDetail">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">id </label>
+                        <input type="text" formControlName="id" class="form-control" id="id" >
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Titre </label>
+                        <input type="text" formControlName="titre" class="form-control" id="Titre" >
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Matiere </label>
+                        <input type="text" formControlName="matiere" class="form-control" id="Matiere" >
+                      </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Niveau </label>
+                      <input type="email" formControlName="niveau" class="form-control" id="Niveau"aria-describedby="emailHelp" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">duree</label>
+                        <input type="text" formControlName="duree" class="form-control" id="Matiere" >
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Auteur </label>
+                        <input type="text" formControlName="auteur" class="form-control" id="Auteur" >
+                      </div>
+                   
+                      <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Descreption</label>
+                          <input type="text" formControlName="descreption" class="form-control" id="descreption" >
+                        </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-success" (click)="updateLesson()" data-bs-dismiss="modal">Update </button>
+                      </div>
+                  </form>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    </div>
+    <div class="content">
+      <div class="container-fluid">
+          <div class="section">
+          </div>
+          
+      </div>
+  </div>
+  
+    

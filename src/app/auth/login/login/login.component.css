@@ -1,0 +1,24 @@
+.img-container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 700px; /* ou la largeur souhaitée */
+ /* couleur de fond pour mieux visualiser */
+    padding: 20px;
+  }
+  
+  .img-circle {
+    border-radius: 100%;
+    overflow: hidden;
+  }
+  
+  .img-circle img {
+    display: block;
+  
+    height: auto;
+  }
+  
+  

@@ -1,0 +1,68 @@
+/* Style pour le tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1rem;
+  }
+  
+  /* Style pour les cellules d'en-tête */
+  th {
+    background-color: #f8f9fa;
+    color: #212529;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: bold;
+    text-align: left;
+    padding: 0.75rem;
+  }
+  
+  /* Style pour les lignes du tableau */
+  td {
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.75rem;
+  }
+  
+  /* Style pour les lignes impaires */
+  tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+  }
+  
+  /* Style pour les lignes paires */
+  tbody tr:nth-child(even) {
+    background-color: #e9ecef;
+  }
+  
+  /* Style pour les cellules des actions */
+  td.actions {
+    white-space: nowrap;
+  }
+  
+  /* Style pour les boutons d'action */
+  .btn {
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+  }
+  
+  /* Style pour les boutons d'action de modification */
+  .btn-edit {
+    color: #007bff;
+    background-color: transparent;
+    border: 1px solid #007bff;
+  }
+  
+  /* Style pour les boutons d'action de suppression */
+  .btn-delete {
+    color: #dc3545;
+    background-color: transparent;
+    border: 1px solid #dc3545;
+  }
+  
+  /* Style pour les boutons d'action de suppression */
+  .btn-add {
+    color: #28a745;
+    background-color: transparent;
+    border: 1px solid #28a745;
+  }
+  

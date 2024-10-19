@@ -1,0 +1,33 @@
+<table class="table table-hover">
+    <thead>
+      <tr> 
+         <th scope="col">Id</th>
+        <th scope="col">Jour</th>
+        <th scope="col">Classe</th>
+      
+        <th scope="col">Name</th>
+        <th scope="col">heureDebut</th>
+        <th scope="col">heureFin</th>
+        <th scope="col">Matiere</th>
+        <th scope="col">Type Presence</th>
+        
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of eveList">
+        <td>{{event.id}}</td>
+        <td>{{event.jour}}</td>
+        <td>{{event.classe}}</td>
+        
+        <td>{{event.name}}</td>
+        <td>{{event.heureDebut}}</td>
+        <td>{{event.heureFin}}</td>
+        <td>{{event.matiere}}</td>
+        <td>{{event.presence}}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+  <button (click)="user()" class="btn btn-primary">Back to Dashbord</button><br>

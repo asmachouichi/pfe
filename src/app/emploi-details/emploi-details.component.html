@@ -1,0 +1,36 @@
+<h2>Emploi</h2> 
+
+<hr/>
+<div *ngIf="emploi">
+    <div>
+        <label><b>classe </b></label> {{emploi.classe}}
+      </div>  
+  <div>
+    <label><b>heureDebut</b></label> {{emploi.heureDebut}}
+  </div>
+  <div>
+    <label><b>heureFin </b></label> {{emploi.heureFin}}
+  </div>
+  <div>
+    <label><b>lundi </b></label> {{emploi.lundi}}
+  </div>  
+  <div>
+    <label><b>mardi </b></label> {{emploi.mardi}}
+  </div>  
+  <div>
+    <label><b>mercredi</b></label> {{emploi.mercredi}}
+  </div> 
+  <div>
+    <label><b>jeudi </b></label> {{emploi.jeudi}}
+  </div> 
+  <div>
+    <label><b>vendredi </b></label> {{emploi.vendredi}}
+  </div> 
+  <div>
+    <label><b>samedi </b></label> {{emploi.samedi}}
+  </div> 
+</div>
+
+<br>
+<br>
+<button (click)="empList()" class="btn btn-primary">Back to empList</button><br>

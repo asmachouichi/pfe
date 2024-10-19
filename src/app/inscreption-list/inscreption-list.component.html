@@ -1,0 +1,29 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Cin</th>
+        <th scope="col">Sexe</th>
+        <th scope="col">Password</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inscreption of insList ">
+        <td>{{inscreption.id}}</td>
+        <td>{{inscreption.name}}</td>
+        <td>{{inscreption.prenom}}</td>
+        <td>{{inscreption.email}}</td>
+        <td>{{inscreption.cin}}</td>
+        <td>{{inscreption.sexe}}</td>
+        <td>{{inscreption.password}}</td>
+       
+
+      </tr>
+      
+    </tbody>
+  </table>
+  <button (click)="user()" class="btn btn-primary">Back to Dashbord</button><br>

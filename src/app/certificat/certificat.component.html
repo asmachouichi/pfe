@@ -1,0 +1,303 @@
+
+
+
+    <!-- Sidebar -->
+    <div class="wrapper">
+        <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+  
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="javascript:;" class="simple-text">
+                      Your Logo
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/admin']">
+                            <i class="nc-icon nc-icon nc-paper-2"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                      <a class="nav-link" [routerLink]="['/etudiant']">
+                        <i class="fas fa-user"></i>
+                          <p>Gestion etudiant</p>
+                      </a>
+                  </li>
+                    <li>
+                        <a class="nav-link" [routerLink]="['/ensiegnant']">
+                          <i class="nc-icon nc-single-02"></i>
+                            <p>Second example</p>
+                        </a>
+                    </li>
+                    <li>
+                    <a class="nav-link" [routerLink]="['/cours']">
+                      <i class="fas fa-user"></i>
+                        <p>cours</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" [routerLink]="['/classe']">
+                      <i class="fas fa-user"></i>
+                        <p>cours</p>
+                    </a>
+                </li>
+                    <li class="nav-item active active-pro">
+                        <a class="nav-link active" href="javascript:;">
+                            <i class="nc-icon nc-alien-33"></i>
+                            <p>Upgrade plan</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+          <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#pablo">Template</a>
+                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="dropdown">
+                                <i class="nc-icon nc-palette"></i>
+                                <span class="d-lg-none">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <i class="nc-icon nc-planet"></i>
+                                <span class="notification">5</span>
+                                <span class="d-lg-none">Notification</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Notification 1</a>
+                                <a class="dropdown-item" href="#">Notification 2</a>
+                                <a class="dropdown-item" href="#">Notification 3</a>
+                                <a class="dropdown-item" href="#">Notification 4</a>
+                                <a class="dropdown-item" href="#">Another notification</a>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nc-icon nc-zoom-split"></i>
+                                <span class="d-lg-block">&nbsp;Search</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pablo">
+                                <span class="no-icon">Account</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="no-icon">Dropdown</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pablo">
+                                <span class="no-icon">Log out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+  
+      <div class="container-fluid">
+  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">certificat</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addCertificat" type="submit">Add certificat</button>
+              </div>
+            </div>
+        </nav>
+    
+    
+    
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                
+              
+              <th scope="col">domaine</th>
+              <th scope="col"> descreption</th>
+              <th scope="col">institut</th>
+              <th scope="col">niveau</th>
+            
+
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let certificat of cerList">
+                <td>{{certificat.id}}</td>
+                <td>{{certificat.name}}</td>
+                <td>{{certificat.domaine}}</td>
+                <td>{{certificat. descreption}}</td>
+                <td>{{certificat.institut}}</td>
+                <td>{{certificat.niveau}}</td>
+                
+                
+                
+                <td>
+                    <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editCertificat" (click)="editCertificat(certificat)">Edit</button>
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteCertificat(certificat)">Delete</button>
+                </td>
+    
+              </tr>
+              
+            </tbody>
+          </table>
+    
+      
+       <!-- Add employee modal -->
+       <div class="modal fade"  classe="text-center"id="addCertificat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add certificat</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+                <form [formGroup]="cerDetail">
+                   
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">name </label>
+                        <input type="text" formControlName="name" class="form-control" id="name" >
+                        <div *ngIf="cerDetail.get('name')?.errors?.['required']" class="text-danger">Name is required</div>
+                        <div *ngIf="cerDetail.get('name')?.errors?.['pattern']" class="text-danger">Name Invalid</div>
+                      </div>
+                     
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">niveau</label>
+                        <input type="email" formControlName="niveau" class="form-control" id="niveau"aria-describedby="emailHelp" >
+                        <div *ngIf="cerDetail.get('niveau')?.errors?.['required']" class="text-danger">Niveau is required</div>
+                        <div *ngIf="cerDetail.get('niveau')?.errors?.['pattern']" class="text-danger">Niveau Invalid</div>
+                      </div>
+                    
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">descreption</label>
+                        <input type="text" formControlName="descreption" class="form-control" id="descreption"aria-describedby="emailHelp" >
+                        <div *ngIf="cerDetail.get('descreption')?.errors?.['required']" class="text-danger">Descreption is required</div>
+                        <div *ngIf="cerDetail.get('descreption')?.errors?.['pattern']" class="text-danger">Descreption Invalid</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">domaine</label>
+                        <input type="email" formControlName="domaine" class="form-control" id="domaine"aria-describedby="emailHelp" >
+                        <div *ngIf="cerDetail.get('domaine')?.errors?.['required']" class="text-danger">Domaine is required</div>
+                        <div *ngIf="cerDetail.get('domaine')?.errors?.['pattern']" class="text-danger">Domaine Invalid</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">institut</label>
+                        <input type="email" formControlName="institut" class="form-control" id="institut"aria-describedby="emailHelp" >
+                        <div *ngIf="cerDetail.get('institut')?.errors?.['required']" class="text-danger">Institut is required</div>
+                        <div *ngIf="cerDetail.get('institut')?.errors?.['pattern']" class="text-danger">Institut Invalid</div>
+                      </div>
+                    
+                   
+                   
+                   
+                    
+                     
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addCertificat()">Add certificat</button>
+                      </div>
+                  </form>
+    
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    
+     
+      <!-- Edit employee modal -->
+      <div class="modal fade" id="editCertificat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit certificat details</h5>
+              
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+                <form [formGroup]="cerDetail">
+                   
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">name </label>
+                    <input type="text" formControlName="name" class="form-control" id="name" >
+                    <div *ngIf="cerDetail.get('name')?.errors?.['required']" class="text-danger">Name is required</div>
+                    <div *ngIf="cerDetail.get('name')?.errors?.['pattern']" class="text-danger">Name Invalid</div>
+                  </div>
+                 
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">niveau</label>
+                    <input type="email" formControlName="niveau" class="form-control" id="niveau"aria-describedby="emailHelp" >
+                    <div *ngIf="cerDetail.get('niveau')?.errors?.['required']" class="text-danger">Niveau is required</div>
+                    <div *ngIf="cerDetail.get('niveau')?.errors?.['pattern']" class="text-danger">Niveau Invalid</div>
+                  </div>
+                
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">descreption</label>
+                    <input type="text" formControlName="descreption" class="form-control" id="descreption"aria-describedby="emailHelp" >
+                    <div *ngIf="cerDetail.get('descreption')?.errors?.['required']" class="text-danger">Descreption is required</div>
+                    <div *ngIf="cerDetail.get('descreption')?.errors?.['pattern']" class="text-danger">Descreption Invalid</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">domaine</label>
+                    <input type="email" formControlName="domaine" class="form-control" id="domaine"aria-describedby="emailHelp" >
+                    <div *ngIf="cerDetail.get('domaine')?.errors?.['required']" class="text-danger">Domaine is required</div>
+                    <div *ngIf="cerDetail.get('domaine')?.errors?.['pattern']" class="text-danger">Domaine Invalid</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">institut</label>
+                    <input type="email" formControlName="institut" class="form-control" id="institut"aria-describedby="emailHelp" >
+                    <div *ngIf="cerDetail.get('institut')?.errors?.['required']" class="text-danger">Institut is required</div>
+                    <div *ngIf="cerDetail.get('institut')?.errors?.['pattern']" class="text-danger">Institut Invalid</div>
+                  </div>
+                  
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-success" (click)="updateCertificat()" data-bs-dismiss="modal">Update </button>
+                      </div>
+                  </form>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    </div>
+    
+
+

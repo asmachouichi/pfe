@@ -1,0 +1,26 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"> ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Specielite</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ensiegnant of ensList">
+        <td>{{ensiegnant.id}}</td>
+        <td>{{ensiegnant.name}}</td>
+      
+        <td>{{ensiegnant.prenom}}</td>
+        <td>{{ensiegnant.email}}</td>
+        <td>{{ensiegnant.specielite}}</td>
+      
+
+      </tr>
+      
+    </tbody>
+  </table>
+  <button (click)="admin()" class="btn btn-primary">Back to Dashbord</button><br>

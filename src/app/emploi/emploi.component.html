@@ -1,0 +1,352 @@
+<!-- Sidebar -->
+<div class="wrapper">
+  <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+      <!--
+  Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+  Tip 2: you can also add an image using data-image tag
+-->
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="javascript:;" class="simple-text">
+              <img src="../assets/img/logo.jpg" alt="Your Logo">
+          </a>
+      </div>
+          <ul class="nav">
+              <li class="nav-item active">
+                  <a class="nav-link" [routerLink]="['/admin']">
+                    <i class="material-icons">dashboard</i>
+                      <p>Dashboard</p>
+                  </a>
+              </li>
+              
+              
+              
+              
+          </ul>
+      </div>
+  </div>
+  <div class="main-panel">
+    <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+      <div class="container-fluid">
+          
+          <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-bar burger-lines"></span>
+              <span class="navbar-toggler-bar burger-lines"></span>
+              <span class="navbar-toggler-bar burger-lines"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+              <ul class="nav navbar-nav mr-auto">
+                 
+                  <li class="nav-item">
+                      <a  class="nav-link">
+                          <i class="nc-icon nc-zoom-split"></i>
+                          <span class="d-lg-block">&nbsp;Search</span>
+                      </a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav ml-auto">
+                
+                 
+                  <li class="nav-item">
+                      <a class="nav-link" href="#pablo">
+                          <span class="no-icon">Log out</span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+
+<div class="container-fluid">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Emploi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addEmploi" type="submit">Add Emploi</button>
+        </div>
+      </div>
+  </nav>
+
+
+  <div>
+    <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
+    
+  </div>
+  
+   
+  
+    
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Classe</th>
+     
+      <th scope="col">Date</th>
+        <th scope="col">heureDebut</th>
+        <th scope="col">heureDebut</th>
+        <th scope="col">Lundi</th>
+        <th scope="col">Mardi</th>
+        <th scope="col">Mercredi</th>
+        <th scope="col">jeudi</th>
+        <th scope="col">Vendredi</th>
+        <th scope="col">samedi</th>
+     
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emploi of empList | search: searchText">
+        
+        <td>{{emploi.id}}</td>
+        <td>{{emploi.classe}}</td>
+       
+        <td>{{emploi.annee}}</td>
+        <td>{{emploi.heureDebut}}</td>
+        <td>{{emploi.heureFin}}</td>
+        <td>{{emploi.lundi}}</td>
+        <td>{{emploi.mardi}}</td>
+        <td>{{emploi.mercredi}}</td>
+        <td>{{emploi.jeudi}}</td>
+        <td>{{emploi.vendredi}}</td>
+        <td>{{emploi.samedi}}</td>
+    
+        
+
+  
+      
+   
+          <td>
+              <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editEmploi" (click)="editEmploi(emploi)">Edit</button>
+              <button type="button" class="btn btn-outline-danger" (click)="deleteEmploi(emploi)">Delete</button>
+              <button (click)="emploiDetails(emploi.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          </td>
+
+        </tr>
+        
+      </tbody>
+    </table>
+   <!-- Assumez que 'selectedEmploi' contient l'emploi actuellement sélectionné -->
+
+
+
+
+
+
+
+ <!-- Add employee modal -->
+ <div class="modal fade"  classe="text-center"id="addEmploi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new Emploi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+        
+        <form [formGroup]="empDetail" >
+         <div class="mb-3"> <label for="exampleInputEmail1" class="form-label">heureDebut </label>
+         <input type="time" id="heureDebut" name="heureDebut"formControlName="heureDebut">
+       
+            
+           
+           
+        </div>
+     
+         
+        <div class="mb-3"> <label for="startEndInput">heureFin </label>
+          <input type="time" id="heureFin" name="heureFin"formControlName="heureFin">
+         
+           
+        </div>
+          
+          <div class="mb-3">
+ 
+              <label for="exampleInputEmail1" class="form-label">Lundi</label>
+             
+           
+              
+                <select [(ngModel)]="selectedLundi" name="lundi" class="form-control" id="lundi" formControlName="lundi">
+                  <option *ngFor="let matiere of matList" [value]="matiere.name" >{{ matiere.name }}</option>
+                </select>
+              
+             
+              
+            
+          
+             </div>
+             
+          <div class="mb-3">
+ 
+              <label for="exampleInputEmail1" class="form-label">Mardi</label>
+              
+              <select [(ngModel)]="selectedMardi" name="mardi" class="form-control" id="mardi" formControlName="mardi">
+                <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+            </select>
+            
+            
+  
+             </div>
+          <div class="mb-3">
+ 
+              <label for="exampleInputEmail1" class="form-label">Mercredi</label>
+              
+              <select [(ngModel)]="selectedMercredi" name="mercredi" class="form-control" id="mercredi" formControlName="mercredi">
+                <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+            </select>
+          
+             </div>
+             <div class="mb-3">
+ 
+              <label for="exampleInputEmail1" class="form-label">Jeudi</label>
+              
+              <select [(ngModel)]="selectedJeudi" name="jeudi" class="form-control" id="jeudi" formControlName="jeudi">
+                <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+            </select>
+          
+            
+             </div>
+           <div class="mb-3">
+ 
+              <label for="exampleInputEmail1" class="form-label">Vendredi</label>
+              
+              <select [(ngModel)]="selectedVendredi" name="vendredi" class="form-control" id="vendredi" formControlName="vendredi">
+                <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+            </select>
+            
+             </div>
+            <div class="mb-3">
+ 
+              <label for="exampleInputEmail1" class="form-label">Samedi</label>
+              
+              <select [(ngModel)]="selectedSamedi" name="samedi" class="form-control" id="samedi" formControlName="samedi">
+                <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+            </select>
+           
+             </div>
+         
+               
+             
+            
+
+             
+       
+              <div class="mb-3">
+                <label for="heure">Date</label>
+                  <input type="date" id="annee" name="annee"formControlName="annee" >
+              </div>
+              <div class="mb-3">
+
+                <label for="exampleInputEmail1" class="form-label">Classe</label>
+                
+                <select [(ngModel)]="selectedClasse" name="classe" class="form-control" id="classe" formControlName="classe">
+                  <option *ngFor="let classe of claList" [value]="classe.name">{{ classe.name }}</option>
+              </select>
+              
+               </div>
+            </form>
+           
+            <div class="modal-footer">
+              
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addEmploi()" >Add emploi</button>
+            </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<!-- Edit employee modal -->
+<div class="modal fade" id="editEmploi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit emploi details</h5>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+          <form [formGroup]="empDetail">
+              
+              
+          <div class="mb-3"> <label for="exampleInputEmail1" class="form-label">heureDebut </label>
+               <input type="time" id="heureDebut" name="heureDebut"formControlName="heureDebut">
+             
+                  
+                 
+                 
+              </div>
+           
+               
+             <div class="mb-3"> <label for="startEndInput">heureFin </label>
+                <input type="time" id="heureFin" name="heureFin"formControlName="heureFin">
+               
+                 
+              </div>
+                
+               <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Lundi</label>
+                      <select [(ngModel)]="selectedLundi" name="lundi" class="form-control" id="lundi" formControlName="lundi">
+                        <option *ngFor="let matiere of matList" [value]="matiere.name" >{{ matiere.name }}</option>
+                      </select>
+              </div>
+                   <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Mardi</label>
+                    <select [(ngModel)]="selectedMardi" name="mardi" class="form-control" id="mardi" formControlName="mardi">
+                      <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+                  </select>
+                   </div> 
+                  <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Mercredi</label>
+                    <select [(ngModel)]="selectedMercredi" name="mercredi" class="form-control" id="mercredi" formControlName="mercredi">
+                      <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+                  </select>
+                 </div> 
+                   <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Jeudi</label>
+                    <select [(ngModel)]="selectedJeudi" name="jeudi" class="form-control" id="jeudi" formControlName="jeudi">
+                      <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+                  </select>
+                </div>
+                 <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Vendredi</label>
+                     <select [(ngModel)]="selectedVendredi" name="vendredi" class="form-control" id="vendredi" formControlName="vendredi">
+                      <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+                  </select>
+                  </div>
+                   <div class="mb-3">
+       <label for="exampleInputEmail1" class="form-label">Samedi</label>
+                    <select [(ngModel)]="selectedSamedi" name="samedi" class="form-control" id="samedi" formControlName="samedi">
+                      <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+                  </select>
+                 </div>
+              <div class="mb-3">
+                      <label for="heure">Date</label>
+                        <input type="date" id="annee" name="annee"formControlName="annee" >
+                    </div>
+                    <div class="mb-3">
+ <label for="exampleInputEmail1" class="form-label">Classe</label>
+                      <select [(ngModel)]="selectedClasse" name="classe" class="form-control" id="classe" formControlName="classe">
+                        <option *ngFor="let classe of claList" [value]="classe.name">{{ classe.name }}</option>
+                    </select>
+                    </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-outline-success" (click)="updateEmploi()" data-bs-dismiss="modal">Update </button>
+                </div>
+            </form>
+
+      </div>
+    </div>
+  </div>
+</div>

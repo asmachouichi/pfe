@@ -1,0 +1,34 @@
+<h2>Presence</h2> 
+
+<hr/>
+<div *ngIf="event">
+    <div>
+        <label><b>jour </b></label> {{event.jour}}
+      </div>  
+  <div>
+    <label><b>heureDebut</b></label> {{event.heureDebut}}
+  </div>
+  <div>
+    <label><b>heureFin </b></label> {{event.heureFin}}
+  </div>
+  <div>
+    <label><b>classe </b></label> {{event.classe}}
+  </div>  
+  <div>
+    <label><b>name </b></label> {{event.name}}
+  </div>  
+  <div>
+    <label><b>matiere</b></label> {{event.matiere}}
+  </div> 
+  <div>
+    <label><b>presence </b></label> {{event.presence}}
+  </div> 
+  
+</div>
+
+<br>
+<br>
+<button (click)="eveList()" class="btn btn-primary">Back to eveList</button><br>
+      <button class="btn btn-primary" (click)="printPage()">Imprimer la page</button>
+ 
+ 

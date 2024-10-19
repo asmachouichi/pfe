@@ -1,0 +1,248 @@
+
+
+
+    <!-- Sidebar -->
+    <div class="wrapper">
+      <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+          <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+          <div class="sidebar-wrapper">
+            <div class="logo">
+              <a href="javascript:;" class="simple-text">
+                  <img src="../assets/img/logo.jpg" alt="Your Logo">
+              </a>
+          </div>
+              <ul class="nav">
+                  <li class="nav-item active">
+                      <a class="nav-link" [routerLink]="['/admin']">
+                        <i class="material-icons">dashboard</i>
+                          <p>Dashboard</p>
+                      </a>
+                  </li>
+                  
+                  
+                  
+                  
+              </ul>
+          </div>
+      </div>
+      <div class="main-panel">
+        <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+          <div class="container-fluid">
+          
+              <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-bar burger-lines"></span>
+                  <span class="navbar-toggler-bar burger-lines"></span>
+                  <span class="navbar-toggler-bar burger-lines"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                  <ul class="nav navbar-nav mr-auto">
+                      
+                     
+                      <li class="nav-item">
+                          <a  class="nav-link">
+                              <i class="nc-icon nc-zoom-split"></i>
+                              <span class="d-lg-block">&nbsp;Search</span>
+                          </a>
+                      </li>
+                  </ul>
+                  <ul class="navbar-nav ml-auto">
+                      
+                   
+                      <li class="nav-item">
+                          <a class="nav-link" href="#pablo">
+                              <span class="no-icon">Log out</span>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+     
+    <div class="container-fluid">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Etudiant</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addEtudiant" type="submit">Add Etudiant</button>
+            </div>
+          </div>
+      </nav>
+  
+  
+  <div>
+    <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
+  </div>
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Prenom</th>
+              <th scope="col">Email</th>
+              <th scope="col">Cin</th>
+              <th scope="col">Date de naissance</th>
+              <th scope="col">classe</th>
+           
+            
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let etudiant of etuList | search: searchText">
+              <td>{{etudiant.id}}</td>
+              <td>{{etudiant.name}}</td>
+              <td>{{etudiant.prenom}}</td>
+              <td>{{etudiant.email}}</td>
+              <td>{{etudiant.cin}}</td>
+              <td>{{etudiant.date_naissance}}</td>
+              <td>{{etudiant.classe}}</td>
+             
+          
+              <td>
+                  <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editEtudiant" (click)="editEtudiant(etudiant)">Edit</button>
+                  <button type="button" class="btn btn-outline-danger" (click)="deleteEtudiant(etudiant)">Delete</button>
+              </td>
+  
+            </tr>
+            
+          </tbody>
+        </table>
+  
+    
+     <!-- Add employee modal -->
+     <div class="modal fade"  classe="text-center"id="addEtudiant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add new Etudiant</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+         
+          <div class="modal-body">
+            
+            <form [formGroup]="etuDetail">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name </label>
+                <select [(ngModel)]="selectedName" name="name" class="form-control" id="name" formControlName="name">
+                  <option *ngFor="let inscreption of insList" [value]="inscreption.name">{{ inscreption.name }}</option>
+              </select>
+                <div *ngIf="etuDetail.get('name')?.errors?.['required']" class="text-danger">Name is required</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Prenom </label>
+                <input type="email" formControlName="prenom" class="form-control" id="email">
+                <div *ngIf="etuDetail.get('prenom')?.errors?.['required']" class="text-danger">Prenom is required</div>
+                <div *ngIf="etuDetail.get('prenom')?.errors?.['pattern']" class="text-danger">Prenom Invalid</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email </label>
+                <input type="email" formControlName="email" class="form-control" id="email">
+                <div *ngIf="etuDetail.get('email')?.errors?.['required']" class="text-danger">Email is required</div>
+                <div *ngIf="etuDetail.get('email')?.errors?.['email']" class="text-danger">Invalid email</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Cin </label>
+                <input type="text" formControlName="cin" class="form-control" id="cin">
+                <div *ngIf="etuDetail.get('cin')?.errors?.['required']" class="text-danger">Cin is required</div>
+                <div *ngIf="etuDetail.get('cin')?.errors?.['pattern']" class="text-danger">Cin must be 8 Number</div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="date"> date de naissance </label>
+                <input type="date" id="date_naissance" name="date de naissance" formControlName="date_naissance">
+                <div *ngIf="etuDetail.get('date_naissance')?.errors?.['required']" class="text-danger">Date de naissance is required</div>
+              </div>
+              <div class="mb-3">
+                <label for="date"> Classe </label>
+                <input type="text" id="classe" name="classe" formControlName="classe">
+                <div *ngIf="etuDetail.get('classe')?.errors?.['required']" class="text-danger">Classe is required</div>
+                <div *ngIf="etuDetail.get('classe')?.errors?.['pattern']" class="text-danger">Classe Invalid</div>
+              </div>
+              
+             
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addEtudiant()" >Add etudiant</button>
+                    </div>
+                </form>
+  
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  
+   
+    <!-- Edit employee modal -->
+    <div class="modal fade" id="editEtudiant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit etudiant details</h5>
+            
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+  
+              <form [formGroup]="etuDetail">
+                  
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Name </label>
+                  <input type="text" formControlName="name" class="form-control" id="name">
+                  <div *ngIf="etuDetail.get('name')?.errors?.['required']" class="text-danger">Name is required</div>
+                  <div *ngIf="etuDetail.get('name')?.errors?.['pattern']" class="text-danger">Name Invalid</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Prenom </label>
+                  <input type="email" formControlName="prenom" class="form-control" id="email">
+                  <div *ngIf="etuDetail.get('prenom')?.errors?.['required']" class="text-danger">Prenom is required</div>
+                  <div *ngIf="etuDetail.get('prenom')?.errors?.['pattern']" class="text-danger">Prenom Invalid</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email </label>
+                  <input type="email" formControlName="email" class="form-control" id="email">
+                  <div *ngIf="etuDetail.get('email')?.errors?.['required']" class="text-danger">Email is required</div>
+                  <div *ngIf="etuDetail.get('email')?.errors?.['email']" class="text-danger">Invalid email</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Cin </label>
+                  <input type="text" formControlName="cin" class="form-control" id="cin">
+                  <div *ngIf="etuDetail.get('cin')?.errors?.['required']" class="text-danger">Cin is required</div>
+                  <div *ngIf="etuDetail.get('cin')?.errors?.['pattern']" class="text-danger">Cin must be 8 Number</div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="date"> date de naissance </label>
+                  <input type="date" id="date_naissance" name="date de naissance" formControlName="date_naissance">
+                  <div *ngIf="etuDetail.get('date_naissance')?.errors?.['required']" class="text-danger">Date de naissance is required</div>
+                </div>
+                <div class="mb-3">
+                  <label for="date"> Classe </label>
+                  <input type="text" id="classe" name="classe" formControlName="classe">
+                  <div *ngIf="etuDetail.get('classe')?.errors?.['required']" class="text-danger">Classe is required</div>
+                  <div *ngIf="etuDetail.get('classe')?.errors?.['pattern']" class="text-danger">Classe Invalid</div>
+                </div>
+                
+                  
+               
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-outline-success" (click)="updateEtudiant()" data-bs-dismiss="modal">Update </button>
+                    </div>
+                </form>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>

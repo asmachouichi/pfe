@@ -1,0 +1,236 @@
+
+
+
+    <!-- Sidebar -->
+    <div class="wrapper">
+        <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+  
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+              <div class="logo">
+                <a href="javascript:;" class="simple-text">
+                    <img src="../assets/img/logo.jpg" alt="Your Logo">
+                </a>
+            </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" [routerLink]="['/admin']">
+                          <i class="material-icons">dashboard</i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+          <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+            <div class="container-fluid">
+                
+                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="dropdown">
+                                <i class="nc-icon nc-palette"></i>
+                                <span class="d-lg-none">Dashboard</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a  class="nav-link">
+                                <i class="nc-icon nc-zoom-split"></i>
+                                <span class="d-lg-block">&nbsp;Search</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                       
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="#pablo">
+                                <span class="no-icon">Log out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+  
+      <div class="container-fluid">
+  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Activite</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addActivite" type="submit">Add Activite</button>
+              </div>
+            </div>
+        </nav>
+    
+    
+    
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Date</th>
+                <th scope="col">Heure</th>
+                <th scope="col">Description</th>
+                <th scope="col">Participants</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let activite of actList">
+                <td>{{activite.id}}</td>
+                <td>{{activite.name}}</td>
+                <td>{{activite.type}}</td>
+                <td>{{activite.date}}</td>
+                <td>{{activite.heure}}</td>
+                <td>{{activite.description}}</td>
+                <td>{{activite.participants}}</td>
+                <td>
+                    <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editActivite" (click)="editActivite(activite)">Edit</button>
+                    <button type="button" class="btn btn-outline-danger" (click)="deleteActivite(activite)">Delete</button>
+                </td>
+    
+              </tr>
+              
+            </tbody>
+          </table>
+    
+      
+       <!-- Add employee modal -->
+       <div class="modal fade"  classe="text-center"id="addActivite" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add new Activite</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              
+                <form [formGroup]="actDetail">
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name </label>
+                        <input type="text" formControlName="name" class="form-control" id="name">
+                        <div *ngIf="actDetail.get('name')?.errors?.['required']" class="text-danger">Name is required</div>
+                        <div *ngIf="actDetail.get('name')?.errors?.['pattern']" class="text-danger">Name Invalid</div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Type </label>
+                        <select id="type" name="type" formControlName="type" >
+                          <option value="clube">clube</option>
+                          <option value="evennement">evennement</option>
+                          <option value="galas">galas</option>
+                        
+                         
+                          <!-- Ajoutez d'autres options de nationalité selon vos besoins -->
+                        </select>
+                      </div>
+                    <div class="mb-3">
+                      <label for="date"> date </label>
+                      <input type="date" id="date" name="date" formControlName="date">
+                      
+                    </div>
+                    <div class="mb-3">
+                   
+                    </div>
+                      <div class="mb-3">
+                        <label for="heure"> heure :</label>
+                        <input type="time" id="heure" name="heure" formControlName="heure">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Description</label>
+                          <input type="text" formControlName="description" class="form-control" id="email" >
+                          <div *ngIf="actDetail.get('description')?.errors?.['required']" class="text-danger">Description is required</div>
+                          <div *ngIf="actDetail.get('description')?.errors?.['pattern']" class="text-danger">Description Invalid</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Participants</label>
+                            <input type="text" formControlName="participants" class="form-control" id="participants">
+                            <div *ngIf="actDetail.get('participants')?.errors?.['required']" class="text-danger">participants is required</div>
+                            <div *ngIf="actDetail.get('participants')?.errors?.['pattern']" class="text-danger">participants Invalid</div>
+                          </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addActivite()">Add matiere</button>
+                      </div>
+                  </form>
+    
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    
+     
+      <!-- Edit employee modal -->
+      <div class="modal fade" id="editActivite" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit activite details</h5>
+              
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+                <form [formGroup]="actDetail">
+                  
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name </label>
+                        <input type="text" formControlName="name" class="form-control" id="name" >
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Type </label>
+                        <input type="email" formControlName="type" class="form-control" id="email" >
+                      </div>
+                    <div class="mb-3">
+                      <label for="date"> date :</label>
+                      <input type="date" id="date" name="date" formControlName="date">
+                      
+                    </div>
+                    <div class="mb-3">
+                      <label for="heure"> heure :</label>
+<input type="time" id="heure" name="heure" formControlName="heure">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Description </label>
+                      <input type="email" formControlName="description" class="form-control" id="email" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Participants</label>
+                        <input type="email" formControlName="participants" class="form-control" id="email" >
+                      </div>
+                     
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-success" (click)="updateActivite()" data-bs-dismiss="modal">Update </button>
+                      </div>
+                  </form>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    </div>
+    
+

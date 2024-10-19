@@ -1,0 +1,52 @@
+
+
+
+
+<div>
+    <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
+    
+  </div>
+
+
+<table class="table table-hover">
+
+
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Classe</th>
+     
+      <th scope="col">Date</th>
+        <th scope="col">heureDebut</th>
+        <th scope="col">heureDebut</th>
+        <th scope="col">Lundi</th>
+        <th scope="col">Mardi</th>
+        <th scope="col">Mercredi</th>
+        <th scope="col">jeudi</th>
+        <th scope="col">Vendredi</th>
+        <th scope="col">samedi</th>
+     
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emploi of empList | search: searchText">
+        
+        <td>{{emploi.id}}</td>
+        <td>{{emploi.classe}}</td>
+       
+        <td>{{emploi.annee}}</td>
+        <td>{{emploi.heureDebut}}</td>
+        <td>{{emploi.heureFin}}</td>
+        <td>{{emploi.lundi}}</td>
+        <td>{{emploi.mardi}}</td>
+        <td>{{emploi.mercredi}}</td>
+        <td>{{emploi.jeudi}}</td>
+        <td>{{emploi.vendredi}}</td>
+        <td>{{emploi.samedi}}</td>
+
+        </tr>
+        
+      </tbody>
+    </table>
+    <button (click)="user()" class="btn btn-primary">Back to Dashbord</button><br>
+    <button class="btn btn-primary" (click)="printPage()">Imprimer la page</button>

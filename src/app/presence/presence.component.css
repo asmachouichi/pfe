@@ -1,0 +1,83 @@
+.logo img {
+    width: px; /* Largeur de l'image */
+    height: 100px; /* Hauteur de l'image */
+    border: 2px solid black; /* Bordure de 2 pixels de large, solide et noire */
+}
+
+.chart {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .bar {
+    width: 20px;
+    background-color: #007bff;
+    transition: height 0.5s ease;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centre les éléments horizontalement */
+  }
+  
+  .box {
+    flex: 0 1 calc(33.33% - 20px); /* Largeur des boîtes avec un espace de 20px entre elles */
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .icon {
+    font-size: 24px;
+    margin-bottom: 10px; /* Ajoute un espace entre l'icône et le nombre */
+  }
+  
+  .number {
+    font-size: 36px;
+  }
+  
+  .text {
+    font-size: 16px;
+  }
+  
+  .green {
+    background-color: #4caf50;
+    color: #fff; /* Couleur du texte */
+  }
+  
+  .purple {
+    background-color: #9c27b0;
+    color: #fff; /* Couleur du texte */
+  }
+  .blue {
+    background-color: blue;
+    color: #fff; /* Couleur du texte */
+  }
+  .logo img {
+    width: px; /* Largeur de l'image */
+    height: 100px; /* Hauteur de l'image */
+    border: 2px solid black; /* Bordure de 2 pixels de large, solide et noire */
+}
+.custom-color {
+    color: #ff0000; /* Exemple de couleur rouge */
+  }
+  /* styles.css ou styles.scss */
+
+/* Couleur de fond des boutons */
+.custom-color {
+    background-color: #ff0000; /* Exemple de couleur rouge */
+    color: #ffffff; /* Couleur du texte */
+  }
+  
+  .custom-co{
+    background-color: blue; /* Exemple de couleur rouge */
+    color: #fff; /* Couleur du texte */
+  }
+  /* Couleur de fond des boutons au survol */
+
+  

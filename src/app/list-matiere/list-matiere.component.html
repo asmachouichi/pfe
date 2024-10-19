@@ -1,0 +1,25 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Niveau</th>
+        <th scope="col">Semestre</th>
+        <th scope="col">Ensiegnant</th>
+        <th scope="col">Horaire</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let matiere of matList">
+        <td>{{matiere.id}}</td>
+        <td>{{matiere.name}}</td>
+        <td>{{matiere.niveau}}</td>
+        <td>{{matiere.semestre}}</td>
+        <td>{{matiere.ensiegnant}}</td>
+        <td>{{matiere.horaire}}</td>
+         </tr>
+      
+    </tbody>
+  </table>
+  <button (click)="admin()" class="btn btn-primary">Back to Dashbord</button><br>

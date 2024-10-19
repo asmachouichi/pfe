@@ -1,0 +1,267 @@
+<div class="wrapper">
+    <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+        <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+  
+    Tip 2: you can also add an image using data-image tag
+  -->
+        <div class="sidebar-wrapper">
+          <div class="logo">
+            <a href="javascript:;" class="simple-text">
+                <img src="../assets/img/logo.jpg" alt="Your Logo">
+            </a>
+        </div>
+            <ul class="nav">
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['/enseignant']">
+                      <i class="material-icons">dashboard</i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                
+                
+                
+                
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+      <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+        <div class="container-fluid">
+            
+            <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar burger-lines"></span>
+                <span class="navbar-toggler-bar burger-lines"></span>
+                <span class="navbar-toggler-bar burger-lines"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                <ul class="nav navbar-nav mr-auto">
+                   
+                   
+                    <li class="nav-item">
+                        <a  class="nav-link">
+                            <i class="nc-icon nc-zoom-split"></i>
+                            <span class="d-lg-block">&nbsp;Search</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                  
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pablo">
+                            <span class="no-icon">Log out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <tbody>
+      
+  <div class="container-fluid">
+    <div class="modal-body">
+        <form [formGroup]="eveDetail" class="row g-3">
+          <div class="col-md-4">
+            <label for="jour" class="form-label">Jour</label>
+            <input type="date" formControlName="jour" class="form-control" id="jour">
+          </div>
+          <div class="mb-3">
+ 
+            <label for="exampleInputEmail1" class="form-label">Classe</label>
+            
+            <select [(ngModel)]="selectedClasse" name="classe" class="form-control" id="classe" formControlName="classe">
+              <option *ngFor="let classe of claList" [value]="classe.name">{{ classe.name }}</option>
+          </select>
+          
+           </div>
+          
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#"></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <button class="btn btn-outline-success custom-co" data-bs-toggle="modal" data-bs-target="#addEmploi" type="submit">Faire l'appele</button>
+                  </div>
+                </div>
+            </nav>
+        </form>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr> 
+             <th scope="col">Id</th>
+            <th scope="col">Jour</th>
+            <th scope="col">Classe</th>
+          
+            <th scope="col">Name</th>
+            <th scope="col">heureDebut</th>
+            <th scope="col">heureFin</th>
+            <th scope="col">Matiere</th>
+            <th scope="col">Type Presence</th>
+            
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of eveList">
+            <td>{{event.id}}</td>
+            <td>{{event.jour}}</td>
+            <td>{{event.classe}}</td>
+           
+            <td>{{event.name}}</td>
+            <td>{{event.heureDebut}}</td>
+            <td>{{event.heureFin}}</td>
+            <td>{{event.matiere}}</td>
+            <td>{{event.presence}}</td>
+            <td>
+              <button type="button" class="btn btn-outline-primary me-2 custom-color" data-bs-toggle="modal" data-bs-target="#editEvent" (click)="editEvent(event)">confirmer</button>
+            <button type="button" class="btn btn-outline-danger" (click)="deleteEvent(event)">Delete</button>
+            <button (click)="classe()" class="btn btn-info" style="margin-left: 10px">voir classe</button>
+           
+           
+           
+            
+        </td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <div class="modal fade"  classe="text-center"id="addMessage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+          
+          </div>
+          
+        </div>
+      </div>
+       
+  
+   <!-- Add employee modal -->
+   <div class="modal fade"  classe="text-center"id="addEmploi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <form [formGroup]="eveDetail" >
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">name </label>
+              <input type="text" formControlName="name" class="form-control" id="text">
+           </div>
+           <div class="mb-3">
+            <label for="heure"> heureDebut :</label>
+            <input type="time" id="heureDebut" name="heure" formControlName="heureDebut">
+            </div>
+            <div class="mb-3">
+              <label for="heure"> heureFin :</label>
+              <input type="time" id="heureFin" name="heure" formControlName="heureFin">
+              <p class="error-message hidden">La date actuelle est après la date de fin. Impossible d'ajouter un événement.</p>
+          </div>
+              <div class="mb-3">
+ 
+                <label for="exampleInputEmail1" class="form-label">Matiere</label>
+                
+                <select [(ngModel)]="selectedMatiere" name="matiere" class="form-control" id="matiere" formControlName="matiere">
+                  <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+              </select>
+              
+               </div>
+               <div class="mb-3">
+                <label for="nationalite">Type Présence</label>
+<select id="presence" name="presence" formControlName="presence" >
+  <option value="present">present</option>
+<option value="absent">absent</option>
+<option value="retard">retard</option>
+
+
+<!-- Ajoutez d'autres options de nationalité selon vos besoins -->
+</select>
+
+                
+              </div>
+  
+  
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addEvent()" >enregistrer</button>
+                 
+                  </div>
+              </form>
+           
+              
+         </div>
+      </div>
+      
+    </div>
+  </div>
+   
+<!-- Add employee modal -->
+<div class="modal fade"  classe="text-center"id="editEvent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form [formGroup]="eveDetail" >
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">name </label>
+            <div *ngIf="eveDetail.get('name')?.errors?.['required']" class="text-danger">Name is required</div>
+            <input type="text" formControlName="name" class="form-control" id="text">
+         </div>
+         <div class="mb-3">
+          <label for="heure"> heureDebut :</label>
+          <div *ngIf="eveDetail.get('heureDebut')?.errors?.['required']" class="text-danger">heureDebut is required</div>
+          <input type="time" id="heureDebut" name="heure" formControlName="heureDebut">
+          </div>
+          <div class="mb-3">
+            <label for="heure"> heureFin :</label>
+            <div *ngIf="eveDetail.get('heureFin')?.errors?.['required']" class="text-danger">heureFin is required</div>
+            <input type="time" id="heureFin" name="heure" formControlName="heureFin">
+            
+        </div>
+            <div class="mb-3">
+
+              <label for="exampleInputEmail1" class="form-label">Matiere</label>
+              <div *ngIf="eveDetail.get('matiere')?.errors?.['required']" class="text-danger">matiere is required</div>
+              <select [(ngModel)]="selectedMatiere" name="matiere" class="form-control" id="matiere" formControlName="matiere">
+                <option *ngFor="let matiere of matList" [value]="matiere.name">{{ matiere.name }}</option>
+            </select>
+            
+             </div>
+             <div class="mb-3">
+              <label for="nationalite">Type Présence</label>
+             
+<select id="presence" name="presence" formControlName="presence" >
+<option value="present">present</option>
+<option value="absent">absent</option>
+<option value="retard">retard</option>
+
+
+</select>    
+   
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-outline-success" (click)="updateEvent()" data-bs-dismiss="modal">confirmer </button>
+  </div>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+

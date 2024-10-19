@@ -1,0 +1,95 @@
+.logo img {
+    width: px; /* Largeur de l'image */
+    height: 100px; /* Hauteur de l'image */
+    border: 2px solid black; /* Bordure de 2 pixels de large, solide et noire */
+}
+/* Sidebar */
+
+
+/* Main panel */
+.main-panel {
+    margin-left: 260px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+}
+
+.navbar-toggler {
+    border: none;
+    cursor: pointer;
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Modals */
+.modal-dialog {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+.modal-body {
+    padding: 20px;
+}
+.custom-col {
+    color: #ffffff; 
+    background-color: purple;/* Exemple de couleur rouge */
+  }
+  /* styles.css ou styles.scss */
+
+/* Couleur de fond des boutons */
+.custom-color {
+    background-color: green; /* Exemple de couleur rouge */
+    color: #ffffff; /* Couleur du texte */
+  }
+  
+  .custom-co{
+    background-color: orange; /* Exemple de couleur rouge */
+    color:#fff ; /* Couleur du texte */
+  }
+  
